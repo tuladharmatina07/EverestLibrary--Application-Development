@@ -1,0 +1,64 @@
+﻿@model IEnumerable<VideoLibraryV1.Models.DVDDetail>
+
+@{
+    ViewBag.Title = "FilterByLastNameDVDOnShelf";
+}
+
+<h2>FilterByLastNameDVDOnShelf</h2>
+<form action="/Report/FilterByLastNameDVDOnShelf" method="get">
+    @Html.DropDownList("LastName", new SelectList(ViewBag.LastName, "LastName", "LastName"), null, null)
+    <button type="submit">Submit</button>
+</form>
+
+@if (Model != null)
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DVDName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudioName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReleasedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AgeRestriction)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Length)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CoverImagePath)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DVDName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudioName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReleasedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgeRestriction)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Length)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CoverImagePath)
+        </td>
+        
+    </tr>
+        }
+
+    </table>
+}

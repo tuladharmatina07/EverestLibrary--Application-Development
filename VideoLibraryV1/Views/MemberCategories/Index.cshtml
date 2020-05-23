@@ -1,0 +1,57 @@
+﻿@model IEnumerable<VideoLibraryV1.Models.MemberCategory>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalLoanAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReturningDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FineAmountPerDay)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalLoanAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReturningDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FineAmountPerDay)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

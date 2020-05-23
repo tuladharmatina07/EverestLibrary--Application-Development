@@ -1,0 +1,121 @@
+﻿@model IEnumerable<VideoLibraryV1.Models.FourthFunction>
+
+@{
+    ViewBag.Title = "Fourth";
+}
+
+<h2>Fourth</h2>
+
+<h2>Fourth Report</h2>
+
+@foreach (var item in Model)
+{
+    <div>
+        <hr />
+        <h5>DVD Detail</h5>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayName("Title")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => item.DVDDetail.DVDName)
+            </dd>
+
+
+            <dt>
+                @Html.DisplayName("ReleasedDate")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => item.DVDDetail.ReleasedDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Length")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => item.DVDDetail.Length)
+            </dd>
+        </dl>
+    </div>
+
+    <h5>Producers</h5>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayName("FirstName")
+            </th>
+            <th>
+                @Html.DisplayName("LastName")
+            </th>
+            <th>
+                @Html.DisplayName("Address")
+            </th>
+            <th>
+                @Html.DisplayName("Email")
+            </th>
+            
+        </tr>
+
+        @foreach (var item2 in item.ProducerDetails)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item2.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item2.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item2.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item2.Email)
+                </td>
+                
+            </tr>
+        }
+
+    </table>
+
+    <h5>Cast Details</h5>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayName("FirstName")
+            </th>
+            <th>
+                @Html.DisplayName("LastName")
+            </th>
+            <th>
+                @Html.DisplayName("Email")
+            </th>
+            <th>
+                @Html.DisplayName("Date of Birth")
+            </th>
+            
+        </tr>
+
+        @foreach (var item3 in item.CastDetails)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item3.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item3.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item3.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item3.DateOfBirth)
+                </td>
+                
+            </tr>
+        }
+
+    </table>
+}

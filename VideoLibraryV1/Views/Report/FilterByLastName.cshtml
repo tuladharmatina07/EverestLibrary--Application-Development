@@ -1,0 +1,48 @@
+﻿@model IEnumerable<VideoLibraryV1.Models.CastMember>
+
+@{
+    ViewBag.Title = "FilterByLastName";
+}
+
+<h2>FilterByLastName</h2>
+
+
+<form action="/Report/FilterByLastName" method="get">
+    @Html.DropDownList("LastName", new SelectList(ViewBag.LastName, "LastName", "LastName"), null, null)
+    <button type="submit">Submit</button>
+</form>
+
+@if (Model != null)
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CastDetails.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DVDDetails.DVDName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CastDetails.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DVDDetails.DVDName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DVDDetails.ReleasedDate)
+                </td>
+
+
+            </tr>
+        }
+
+    </table>
+}
+
+
